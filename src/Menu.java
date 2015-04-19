@@ -17,22 +17,22 @@ public class  Menu {
 		
 		// Agregar tramos
 		Tramo tramo1 = agencia.agregarTramo(valpo, stgo, 2500);
-		Tramo tramo2 = agencia.agregarTramo(valpo, tmco, 10000);
-		Tramo tramo3 = agencia.agregarTramo(tmco, valpo, 10000);
-		Tramo tramo4 = agencia.agregarTramo(tmco, stgo, 8000);
+		agencia.agregarTramo(valpo, tmco, 10000);
+		agencia.agregarTramo(tmco, valpo, 10000);
+		agencia.agregarTramo(tmco, stgo, 8000);
 		
 		// Agregar bus
 		Bus bus1 = tramo1.agregarBus("04", "03","14", "20", "04", "02", "2015");
-		Bus bus2 = tramo1.agregarBus("04", "03","14", "20" , "05", "02", "2015");
-		Bus bus3 = tramo1.agregarBus("04", "03","14", "20", "06", "02", "2015");
-		Bus bus4 = tramo1.agregarBus("04", "03","14", "20","07", "02", "2015");
+		tramo1.agregarBus("04", "03","14", "20" , "05", "02", "2015");
+		tramo1.agregarBus("04", "03","14", "20", "06", "02", "2015");
+		tramo1.agregarBus("04", "03","14", "20","07", "02", "2015");
 
 		// Agregar cliente
-		Cliente cliente1 = agencia.agregarCliente("111111111", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
-		Cliente cliente2 = agencia.agregarCliente("222222222", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
-		Cliente cliente3 = agencia.agregarCliente("333333333", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
-		Cliente cliente4 = agencia.agregarCliente("44444444", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
-		Cliente cliente5 = agencia.agregarCliente("181944773", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
+		agencia.agregarCliente("111111111", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
+		agencia.agregarCliente("222222222", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
+		agencia.agregarCliente("333333333", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
+		agencia.agregarCliente("44444444", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
+		agencia.agregarCliente("181944773", "nombres", "apellidos", "fechaNacimiento", true, "telefono");
 		
 		// ComprarPasaje
 		agencia.comprarPasaje(bus1, "181944773", "wdas", tramo1.getSalida(), tramo1.getLlegada(), 33, 2343423);

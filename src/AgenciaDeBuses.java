@@ -18,7 +18,6 @@ public class AgenciaDeBuses {
 	}
 	public static void menu(final Agencia agencia) throws IOException{
 		int opcion=0;
-		int opcion2=0;
 
 		while(opcion<4){
 			System.out.println(" 1.-Abrir ventana"
