@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.DefaultComboBoxModel;
+
 
 public class FrameAgregarBus extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private Tramo tramo = null;
 	/**
 	 * Launch the application.
 	 *//*
@@ -45,31 +46,37 @@ public class FrameAgregarBus extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblFecha = new JLabel("Fecha");
-		lblFecha.setBounds(27, 94, 60, 14);
+		lblFecha.setBounds(118, 114, 60, 14);
 		contentPane.add(lblFecha);
 		
 		JLabel lblHoraDeLlegada = new JLabel("Hora de llegada");
-		lblHoraDeLlegada.setBounds(27, 144, 75, 14);
+		lblHoraDeLlegada.setBounds(118, 170, 75, 14);
 		contentPane.add(lblHoraDeLlegada);
 		
 		JLabel lblHoraDeSalida = new JLabel("Hora de salida");
-		lblHoraDeSalida.setBounds(27, 119, 93, 14);
+		lblHoraDeSalida.setBounds(118, 142, 93, 14);
 		contentPane.add(lblHoraDeSalida);
 		
 		final JComboBox<String> comboBoxDia = new JComboBox<String>();
 		comboBoxDia.addItem("Dia");
 		for (int i = 1; i <=31; i++) {
-			comboBoxDia.addItem(String.valueOf(i));
+			if(i < 10)
+				comboBoxDia.addItem("0" + String.valueOf(i));
+			else
+				comboBoxDia.addItem(String.valueOf(i));
 		}
-		comboBoxDia.setBounds(75, 91, 45, 20);
+		comboBoxDia.setBounds(166, 111, 45, 20);
 		contentPane.add(comboBoxDia);
 		
 		JComboBox<String> comboBoxMes = new JComboBox<String>();
 		comboBoxMes.addItem("Mes");
 		for (int i = 1; i <= 12; i++) {
-			comboBoxMes.addItem(String.valueOf(i));
+			if(i < 10)
+				comboBoxMes.addItem("0" + String.valueOf(i));
+			else
+				comboBoxMes.addItem(String.valueOf(i));
 		}
-		comboBoxMes.setBounds(130, 91, 45, 20);
+		comboBoxMes.setBounds(221, 111, 45, 20);
 		contentPane.add(comboBoxMes);
 		
 		JComboBox<String> comboBoxAño = new JComboBox<String>();
@@ -77,59 +84,81 @@ public class FrameAgregarBus extends JFrame {
 		for (int i = 1920; i <= 2015 ; i++) {
 			comboBoxAño.addItem(String.valueOf(i));
 		}
-		comboBoxAño.setBounds(185, 91, 51, 20);
+		comboBoxAño.setBounds(276, 111, 51, 20);
 		contentPane.add(comboBoxAño);
 		
-		JLabel lblFechaActualY = new JLabel("Fecha actual y hora actual");
-		lblFechaActualY.setBounds(27, 18, 176, 14);
-		contentPane.add(lblFechaActualY);
+		String[] tiempo = new String[62];
+		tiempo[0] = "";
+		for(int i = 0; i < 10; i++)
+			tiempo[i+1] = "0" + i;
+		for(int i = 10; i < 60; i++)
+			tiempo[i+1] = "" + i;
 		
 		JComboBox<String> comboBoxHoraSal = new JComboBox<String>();
+		comboBoxHoraSal.setModel(new DefaultComboBoxModel<String>(tiempo));
 		comboBoxHoraSal.addItem("HSalida");
 		for (int i = 00; i <= 23 ; i++) {
 			comboBoxHoraSal.addItem(String.valueOf(i));
 		}
-		comboBoxHoraSal.setBounds(112, 116, 45, 20);
+		comboBoxHoraSal.setBounds(203, 139, 45, 20);
 		contentPane.add(comboBoxHoraSal);
 		
 		JComboBox<String> comboBoxMinutoSal = new JComboBox<String>();
+		comboBoxMinutoSal.setModel(new DefaultComboBoxModel<String>(tiempo));
 		comboBoxMinutoSal.addItem("MSalida");
 		for (int i = 00; i <= 59 ; i++) {
 			comboBoxMinutoSal.addItem(String.valueOf(i));
 		}
-		comboBoxMinutoSal.setBounds(167, 116, 45, 20);
+		comboBoxMinutoSal.setBounds(258, 139, 45, 20);
 		contentPane.add(comboBoxMinutoSal);
 		
 		JComboBox<String> comboBoxHoraLleg = new JComboBox<String>();
+		comboBoxHoraLleg.setModel(new DefaultComboBoxModel<String>(tiempo));
 		comboBoxHoraLleg.addItem("HLlegada");
 		for (int i = 00; i <= 23 ; i++) {
 			comboBoxHoraLleg.addItem(String.valueOf(i));
 		}
-		comboBoxHoraLleg.setBounds(112, 141, 45, 20);
+		comboBoxHoraLleg.setBounds(203, 167, 45, 20);
 		contentPane.add(comboBoxHoraLleg);
 		
 		JComboBox<String> comboBoxMinutoLleg = new JComboBox<String>();
+		comboBoxMinutoLleg.setModel(new DefaultComboBoxModel<String>(tiempo));
 		comboBoxMinutoLleg.addItem("MinutoLleg");
 		for (int i = 00; i <= 59 ; i++) {
 			comboBoxMinutoLleg.addItem(String.valueOf(i));
 		}
-		comboBoxMinutoLleg.setBounds(167, 141, 45, 20);
+		comboBoxMinutoLleg.setBounds(258, 167, 45, 20);
 		contentPane.add(comboBoxMinutoLleg);
 		
-		JComboBox<String> comboBoxLugarSal = new JComboBox<String>();	
-		comboBoxLugarSal.setBounds(112, 53, 91, 20);
-		contentPane.add(comboBoxLugarSal);
+		JComboBox<String> comboBoxSalida = new JComboBox<String>();	
+		comboBoxSalida.setBounds(118, 80, 91, 20);
+		contentPane.add(comboBoxSalida);
 		
-		JComboBox<String> comboBoxLugarLleg = new JComboBox<String>();
-		comboBoxLugarLleg.setBounds(318, 53, 85, 20);
-		contentPane.add(comboBoxLugarLleg);
+		JComboBox<String> comboBoxLlegada = new JComboBox<String>();
+		comboBoxLlegada.setBounds(242, 80, 85, 20);
+		contentPane.add(comboBoxLlegada);
+		
+		// Agregando lugares a comboBoxLlegada y comboBoxSalida.
+		String[] lugares = agencia.listarLugarestoString();
+		comboBoxSalida.removeAllItems();
+		comboBoxLlegada.removeAllItems();
+		comboBoxSalida.addItem("");
+		comboBoxLlegada.addItem("");
+		for(int i = 0; i < lugares.length; i++) {
+			comboBoxSalida.addItem(lugares[i]);
+			comboBoxLlegada.addItem(lugares[i]);
+		}
 
 		JButton btnAgregarElBus = new JButton("Agregar el bus");
 		btnAgregarElBus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 
-				if(comboBoxDia.getSelectedIndex() == 0)
+				if(comboBoxSalida.getSelectedIndex() == 0)
+					JOptionPane.showMessageDialog(null, "Lugar de la salida no puede estar en blanco.");
+				else if(comboBoxLlegada.getSelectedIndex() == 0)
+					JOptionPane.showMessageDialog(null, "Lugar de llegada no puede estar en blanco.");
+				else if(comboBoxDia.getSelectedIndex() == 0)
 					JOptionPane.showMessageDialog(null, "Dia no puede estar en blanco.");
 				else if(comboBoxMes.getSelectedIndex() == 0)
 					JOptionPane.showMessageDialog(null, "Mes no puede estar en blanco.");
@@ -143,31 +172,43 @@ public class FrameAgregarBus extends JFrame {
 					JOptionPane.showMessageDialog(null, "Hora de llegada no puede estar en blanco.");
 				else if(comboBoxMinutoLleg.getSelectedIndex() == 0)
 					JOptionPane.showMessageDialog(null, "Minutos de la llegada no puede estar en blanco.");
-				else if(comboBoxLugarSal.getSelectedIndex() == 0)
-					JOptionPane.showMessageDialog(null, "Lugar de la salida no puede estar en blanco.");
-				else if(comboBoxLugarLleg.getSelectedIndex() == 0)
-					JOptionPane.showMessageDialog(null, "Lugar de llegada no puede estar en blanco.");
-				String dia, mes, año;
-				String hora, minuto, horaLleg, minutoLleg;
-				dia=(String)comboBoxDia.getSelectedItem();
-				mes=(String)comboBoxMes.getSelectedItem();
-				año=(String)comboBoxAño.getSelectedItem();
-				hora=(String)comboBoxHoraSal.getSelectedItem();
-				minuto=(String)comboBoxMinutoSal.getSelectedItem();
-				horaLleg=(String)comboBoxHoraLleg.getSelectedItem();
-				minutoLleg=(String)comboBoxMinutoLleg.getSelectedItem();
-				tramo.agregarBus(hora, minuto, horaLleg, minutoLleg, dia, mes, año);
+				else {
+					Lugar salida = agencia.listarLugares()[comboBoxSalida.getSelectedIndex() - 1];
+					Lugar llegada = agencia.listarLugares()[comboBoxLlegada.getSelectedIndex() - 1];
+					Tramo tramo = agencia.buscarTramo(salida, llegada);
+					if(tramo != null) {
+						String dia=(String)comboBoxDia.getSelectedItem();
+						String mes=(String)comboBoxMes.getSelectedItem();
+						String año=(String)comboBoxAño.getSelectedItem();
+						String horaSal=(String)comboBoxHoraSal.getSelectedItem();
+						String minutoSal=(String)comboBoxMinutoSal.getSelectedItem();
+						String horaLleg=(String)comboBoxHoraLleg.getSelectedItem();
+						String minutoLleg=(String)comboBoxMinutoLleg.getSelectedItem();
+						if(tramo.agregarBus(horaSal, minutoSal, horaLleg, minutoLleg, dia, mes, año)!=null) {
+							JOptionPane.showMessageDialog(null, "Se ha guardado correctamente.");
+
+							FrameAgregarBus frame = new FrameAgregarBus(agencia);
+							frame.setVisible(true);
+							
+							FrameAgregarBus.this.dispose();
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Ya existe un bus con esa fecha y hora.");
+					}
+					else
+						JOptionPane.showMessageDialog(null, "Tramo no encontrado, intente con otro tramo.");
+				}
 			}
 		});
-		btnAgregarElBus.setBounds(53, 190, 122, 23);
+		btnAgregarElBus.setBounds(162, 209, 122, 23);
 		contentPane.add(btnAgregarElBus);
 		
 		JLabel lblLugarSalida = new JLabel("Lugar Salida");
-		lblLugarSalida.setBounds(27, 53, 75, 20);
+		lblLugarSalida.setBounds(136, 54, 75, 17);
 		contentPane.add(lblLugarSalida);
 		
 		JLabel lblLugarLlegada = new JLabel("Lugar Llegada");
-		lblLugarLlegada.setBounds(223, 56, 85, 14);
+		lblLugarLlegada.setBounds(242, 55, 85, 14);
 		contentPane.add(lblLugarLlegada);
 		
 				
@@ -179,7 +220,7 @@ public class FrameAgregarBus extends JFrame {
 				FrameAgregarBus.this.dispose();
 			}
 		});
-		btnVolver.setBounds(199, 190, 183, 23);
+		btnVolver.setBounds(241, 11, 183, 23);
 		contentPane.add(btnVolver);
 	}
 	

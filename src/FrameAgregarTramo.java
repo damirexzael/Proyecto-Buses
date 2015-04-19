@@ -101,8 +101,10 @@ public class FrameAgregarTramo extends JFrame {
 						if(Integer.parseInt(textField.getText()) < 1)
 							JOptionPane.showMessageDialog(null, "Tarifa no puede ser menor a uno.");
 						else {
-							if(agencia.agregarTramo(agencia.listarLugares()[comboBoxSalida.getSelectedIndex() - 1], 
-									agencia.listarLugares()[comboBoxLlegada.getSelectedIndex() - 1], Integer.parseInt(textField.getText()))!=null) {
+							Lugar salida = agencia.listarLugares()[comboBoxSalida.getSelectedIndex() - 1];
+							Lugar llegada = agencia.listarLugares()[comboBoxLlegada.getSelectedIndex() - 1];
+							int tarifa = Integer.parseInt(textField.getText());
+							if(agencia.agregarTramo(salida, llegada, tarifa)!=null) {
 								JOptionPane.showMessageDialog(null, "Se ha agregado correctamente.");
 
 								FrameAgregarTramo frame = new FrameAgregarTramo(agencia);
