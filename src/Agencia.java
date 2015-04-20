@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,21 @@ public class Agencia {
 	private static Map <String,Cliente> clientes = new HashMap <String,Cliente>() ;
 	BufferedReader lee=new BufferedReader(new InputStreamReader(System.in));
 	
+	
+	/**
+	 * Muestra todos los clientes guardados en la lista.
+	 * @return Retorna un array con todos los clientes
+	 * ordenados.
+	 */
+	public Cliente[] listarClientes() {
+		Cliente[] clientes = new Cliente[Agencia.clientes.size()];
+		int i=0;
+		for (String key: Agencia.clientes.keySet()) {
+			clientes[i] = Agencia.clientes.get(key);
+			i++;
+		}
+		return clientes;
+	}
 	
 	/**
 	 * Entrega un arreglo con los lugares 
