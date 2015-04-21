@@ -42,54 +42,14 @@ public class AgenciaDeBuses {
 //		cliente1.agregarPasaje(tramo1.getSalida(), tramo1.getLlegada(), 33, tramo1.getTarifa(), bus1);
 //		cliente1.agregarPasaje(tramo1.getSalida(), tramo1.getLlegada(), 33, tramo1.getTarifa(), bus2);
 
-		menu(agencia);
+//		menu(agencia);
+
+		MenuPrincipal frame = new MenuPrincipal(agencia);
+
+		frame.setVisible(true);
+		
 		System.out.println("Gracias por preferir nuestros servicios :)");
 		/*falta reporte de archivos en las clases*/
 	}
-	public static void menu(final Agencia agencia) throws IOException{
-		int opcion=0;
-
-		while(opcion<4){
-			System.out.println(" 1.-Abrir ventana"
-					+"\n 2.-Eliminar"
-					+"\n 3.-Editar"
-					+"\n 4.-Salir");
-
-			String ingresado=leer.readLine();
-			agencia.esNumero(ingresado);
-			opcion=Integer.parseInt(ingresado);
-
-			if(opcion<4){
-				if(opcion==1){
-					
-					EventQueue.invokeLater(new Runnable() {
-
-						public void run() {
-							try {
-								MenuPrincipal frame = new MenuPrincipal(agencia);
-
-								frame.setVisible(true);
-
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-					});
-					
-				}
-				
-				if(opcion==2){
-					System.out.println("Eliminar");
-
-				}
-				if(opcion==3){
-					System.out.println("Editar");
-					
-				}
-				
-				
-			}
-		}
-	}
-
+	
 }

@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -13,28 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
-
 public class MenuPrincipal extends JFrame {
-
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MenuPrincipal frame = new MenuPrincipal(null);
-//					frame.setVisible(true);
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the frame.
@@ -177,6 +158,13 @@ public class MenuPrincipal extends JFrame {
 				}
 				else if(comboBoxMostrar.getSelectedIndex() == 1) {
 					FrameMostrarTramos frame = new FrameMostrarTramos(agencia);
+					frame.setVisible(true);
+					
+					MenuPrincipal.this.dispose();
+					
+				}
+				else if(comboBoxMostrar.getSelectedIndex() == 2) {
+					FrameMostrarBuses frame = new FrameMostrarBuses(agencia);
 					frame.setVisible(true);
 					
 					MenuPrincipal.this.dispose();
