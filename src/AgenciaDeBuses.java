@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,10 +41,7 @@ public class AgenciaDeBuses {
 //		cliente1.agregarPasaje(tramo1.getSalida(), tramo1.getLlegada(), 33, tramo1.getTarifa(), bus1);
 //		cliente1.agregarPasaje(tramo1.getSalida(), tramo1.getLlegada(), 33, tramo1.getTarifa(), bus2);
 
-//		menu(agencia);
-
 		MenuPrincipal frame = new MenuPrincipal(agencia);
-
 		frame.setVisible(true);
 		
 		System.out.println("Gracias por preferir nuestros servicios :)");

@@ -143,7 +143,7 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(lblMostrar);
 		
 		JComboBox<String> comboBoxMostrar = new JComboBox<String>();
-		comboBoxMostrar.setModel(new DefaultComboBoxModel(new String[] {"Lugar", "Tramo", "Bus", "Cliente"}));
+		comboBoxMostrar.setModel(new DefaultComboBoxModel<String>(new String[] {"Lugares", "Tramos", "Buses", "Clientes"}));
 		comboBoxMostrar.setBounds(169, 124, 138, 20);
 		contentPane.add(comboBoxMostrar);
 		
