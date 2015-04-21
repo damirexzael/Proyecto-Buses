@@ -49,7 +49,7 @@ public class ListaLugares {
 			listarLugares[i] = lugares.get(key).getLugar();
 			i++;
 		}
-		Arrays.sort(listarLugares);
+//		Arrays.sort(listarLugares);
 		return listarLugares;
 	}
 	

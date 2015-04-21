@@ -304,6 +304,14 @@ public class BuscarBuses extends JFrame {
 		panel_3.setBounds(475, 11, 200, 58);
 		
 		getContentPane().add(panel_3);
+		btnVolverAlMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				MenuPrincipal frame=new MenuPrincipal(agencia);
+				frame.setVisible(true);
+				BuscarBuses.this.dispose();
+			}
+		});
 		
 		panel_3.add(btnVolverAlMenu);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

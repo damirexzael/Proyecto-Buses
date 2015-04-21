@@ -156,5 +156,43 @@ public class MenuPrincipal extends JFrame {
 		btnListo_1.setBounds(317, 88, 89, 23);
 		contentPane.add(btnListo_1);
 		
+		JLabel lblMostrar = new JLabel("Mostrar Todos los");
+		lblMostrar.setForeground(Color.BLUE);
+		lblMostrar.setBounds(27, 123, 144, 23);
+		contentPane.add(lblMostrar);
+		
+		JComboBox<String> comboBoxMostrar = new JComboBox<String>();
+		comboBoxMostrar.setModel(new DefaultComboBoxModel(new String[] {"Lugar", "Tramo", "Bus", "Cliente"}));
+		comboBoxMostrar.setBounds(169, 124, 138, 20);
+		contentPane.add(comboBoxMostrar);
+		
+		JButton buttonMostrar = new JButton("Listo");
+		buttonMostrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(comboBoxMostrar.getSelectedIndex() == 0) {
+					FrameMostrarLugares frame = new FrameMostrarLugares(agencia);
+					frame.setVisible(true);
+					
+					MenuPrincipal.this.dispose();
+				}
+				else if(comboBoxMostrar.getSelectedIndex() == 1) {
+					FrameMostrarTramos frame = new FrameMostrarTramos(agencia);
+					frame.setVisible(true);
+					
+					MenuPrincipal.this.dispose();
+					
+				}
+				else if(comboBoxMostrar.getSelectedIndex() == 3) {
+					FrameMostrarClientes frame = new FrameMostrarClientes(agencia);
+					frame.setVisible(true);
+					
+					MenuPrincipal.this.dispose();
+					
+				}
+			}
+		});
+		buttonMostrar.setBounds(317, 123, 89, 23);
+		contentPane.add(buttonMostrar);
+		
 	}
 }
