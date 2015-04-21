@@ -22,7 +22,7 @@ public class MenuPrincipal extends JFrame {
 	 */
 	public MenuPrincipal( final Agencia agencia) {
 		//setAlwaysOnTop(true);
-		
+		// hola
 		setTitle("Empresa de Buses");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
